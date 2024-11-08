@@ -8,6 +8,7 @@ pipeline {
             steps {
                 // Install dependencies in a virtual environment
                 sh '''
+                    #!/bin/bash
                     sudo apt install python3-venv -y
                     python3 -m venv venv
                     source venv/bin/activate
@@ -20,7 +21,8 @@ pipeline {
             steps {
                 // Run unit tests
                 sh '''
-                    source venv/bin/activate
+                    #!/bin/bash
+                    . venv/bin/activate
                     python -m unittest discover -s . -p "test_*.py"
                 '''
             }
