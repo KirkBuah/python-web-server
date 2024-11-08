@@ -13,6 +13,12 @@ class FlaskAppTests(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, b'Hello, World!')
+    
+    def test_user(self):
+        # Sends a GET request to the '/user' route
+        response = self.app.get('/user')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, b'Username')
 
 if __name__ == '__main__':
     unittest.main()
