@@ -47,6 +47,7 @@ pipeline {
         }
         success {
             sh '''
+                sudo chmod 666 /var/run/docker.sock
                 cat $GKE_KEY | docker login -u _json_key --password-stdin https://europe-north1-docker.pkg.dev
                 docker build -t europe-north1-docker.pkg.dev/$BUILD_TAG/$GIT_COMMIT:$BUILD_NUMBER .
                 docker push europe-north1-docker.pkg.dev/$BUILD_TAG/$GIT_COMMIT:$BUILD_NUMBER  
