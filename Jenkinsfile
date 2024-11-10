@@ -68,12 +68,12 @@ pipeline {
 
             // Commit and push changes to k8s/deploy.yaml
             sh '''
+                git checkout main
                 git config --global user.name "$GITHUB_USERNAME"
                 git config --global user.email "$GITHUB_EMAIL"
                 git add k8s/deploy.yaml
                 git commit -m "Update image tag to $BUILD_NUMBER"
                 git remote set-url origin https://$GITHUB_PAT@github.com/KirkBuah/python-web-server.git
-                git checkout main
                 git push origin main
             '''
         }
