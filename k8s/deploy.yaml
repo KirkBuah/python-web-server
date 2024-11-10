@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: python-app-container
-        image: europe-north1-docker.pkg.dev/gke-python-webapp/python-webapp/gke-python-webapp:33
+        image: europe-north1-docker.pkg.dev/gke-python-webapp/python-webapp/gke-python-webapp:34
         ports:
         - containerPort: 80
