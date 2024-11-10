@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-deployment
+  labels:
+    type: backend
+    app: python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: backend
+      app: python-app
+  template:
+    name: python-app-pod
+    metadata:
+      labels:
+        type: backend
+        app: python-app
+    spec:
+      containers:
+      - name: python-app-container
+        image: europe-north1-docker.pkg.dev/gke-python-webapp/python-webapp/gke-python-webapp:v4
+        ports:
+        - containerPort: 80
