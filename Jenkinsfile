@@ -73,6 +73,7 @@ pipeline {
                 git add k8s/deploy.yaml
                 git commit -m "Update image tag to $BUILD_NUMBER"
                 git remote set-url origin https://$GITHUB_PAT@github.com/KirkBuah/python-web-server.git
+                git checkout main
                 git push origin main
             '''
         }
